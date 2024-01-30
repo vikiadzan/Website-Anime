@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Anime List Website
+![mobile (2)](https://github.com/vikiadzan/Website-Anime/assets/82427912/de6af1f7-a75f-48e1-b21b-1a58c67ffdcb)
+
+This website is built using Next.js 13 and leverages the Jikan API to provide a comprehensive list of anime and manga. The Jikan API is an interface that grants access to up-to-date data related to anime and manga.
+
+Key Features
+  - *Anime List:* Display a complete list of anime along with details such as title, genre, and rating.
+  - Manga List: Present a list of manga with information like author, status, and synopsis.
+  - Quick Search: Easily find your favorite anime or manga using the fast search feature.
+  - Responsive Design: Enjoy an optimal user experience on both desktop and mobile devices.
+
+Technologies Used
+  - Next.js 13: React framework for modern web development.
+  - Jikan API: Primary data source for anime and manga information.
 
 ## Getting Started
 
@@ -38,19 +51,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 
 
-Certainly! Here's the README description in English for your Anime List Website project:
 
-# Anime List Website
-![mobile (2)](https://github.com/vikiadzan/Website-Anime/assets/82427912/de6af1f7-a75f-48e1-b21b-1a58c67ffdcb)
-
-This website is built using Next.js 13 and leverages the Jikan API to provide a comprehensive list of anime and manga. The Jikan API is an interface that grants access to up-to-date data related to anime and manga.
-
-Key Features
-Anime List: Display a complete list of anime along with details such as title, genre, and rating.
-Manga List: Present a list of manga with information like author, status, and synopsis.
-Quick Search: Easily find your favorite anime or manga using the fast search feature.
-Responsive Design: Enjoy an optimal user experience on both desktop and mobile devices.
-
-Technologies Used
-Next.js 13: React framework for modern web development.
-Jikan API: Primary data source for anime and manga information.

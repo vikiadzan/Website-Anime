@@ -1,0 +1,99 @@
+const Pagination = ({ page, lastPage, setPage, count }) => {
+    const scrollTop = () => {
+        window.scrollTo({
+            behavior: "smooth",
+            top: 0,
+        });
+    };
+
+    const handleNextPage = () => {
+        if (page < lastPage) {
+            setPage((prevState) => prevState + 1);
+            scrollTop();
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (page > 1) {
+            setPage((prevState) => prevState - 1);
+            scrollTop();
+        }
+    };
+
+    const handlePageClick = (pageNumber) => {
+        setPage(pageNumber);
+        scrollTop();
+    };
+
+    // Menentukan halaman-halaman yang akan ditampilkan
+    let startPage = Math.max(1, page - Math.floor(count / 2));
+    let endPage = Math.min(startPage + count - 1, lastPage);
+
+    if (endPage - startPage < count - 1) {
+        // Jika jumlah halaman yang ditampilkan kurang dari count, perlu diadjust
+        startPage = Math.max(1, endPage - count + 1);
+    }
+
+    return (
+        <div className="flex justify-center items-center py-4 px-2 gap-4 text-color-primary text-2xl">
+            <button
+                onClick={handlePrevPage}
+                className={`${page <= 1 ? "cursor-not-allowed" : "cursor-pointer hover:text-color-accent"
+                    }`}
+                disabled={page <= 1}
+            >
+                Prev
+            </button>
+
+            {startPage > 1 && (
+                <>
+                    <button
+                        onClick={() => handlePageClick(1)}
+                        className={`${page === 1 ? "font-bold" : "hover:text-color-accent"}`}
+                    >
+                        1
+                    </button>
+
+                    {startPage > 2 && <span className="mx-2">...</span>}
+                </>
+            )}
+
+            {Array.from({ length: Math.min(endPage - startPage + 1, count) }, (_, index) => (
+                <button
+                    key={startPage + index}
+                    onClick={() => handlePageClick(startPage + index)}
+                    className={`${page === startPage + index ? "font-bold" : "hover:text-color-accent"
+                        }`}
+                >
+                    {startPage + index}
+                </button>
+            ))}
+
+            {endPage < lastPage && (
+                <>
+                    {endPage < lastPage - 1 && <span className="mx-2">...</span>}
+
+                    <button
+                        onClick={() => handlePageClick(lastPage)}
+                        className={`${page === lastPage ? "font-bold" : "hover:text-color-accent"
+                            }`}
+                    >
+                        {lastPage}
+                    </button>
+                </>
+            )}
+
+            <button
+                onClick={handleNextPage}
+                className={`${page >= lastPage ? "cursor-not-allowed" : "cursor-pointer hover:text-color-accent"}`}
+                disabled={page >= lastPage}
+            >
+                Next
+            </button>
+        </div>
+
+    );
+};
+
+
+export default Pagination
